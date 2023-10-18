@@ -176,6 +176,7 @@ html {
   scroll-behavior: smooth;
 }
 
+
 body {
   background-color: var(--eerie-black-1);
   color: var(--white);
@@ -189,7 +190,7 @@ body {
 
 body.loaded { overflow: overlay; }
 
-body.nav-active { overflow: hidden; }
+body.nav-active { overflow: -moz-hidden-unscrollable; }
 
 ::-webkit-scrollbar { width: 5px; }
 

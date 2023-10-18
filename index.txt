@@ -337,7 +337,7 @@ Twitter
 Youtube
 Google Map
 
-&copy; 2022 Grilli. All Rights Reserved | Crafted by
+
 
 https://github.com/RolandTech
 

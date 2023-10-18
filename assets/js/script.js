@@ -29,6 +29,7 @@ const addEventOnElements = function (elements, eventType, callback) {
 
 
 
+
 /*
  * NAVBAR
  */
@@ -481,3 +482,5 @@ function changeImage12() {
 }
 
 setInterval(changeImage12, 3000);
+
+
