@@ -27,6 +27,52 @@ const addEventOnElements = function (elements, eventType, callback) {
   }
 }
 
+// Sélectionnez tous les liens de navigation
+const navLinks = document.querySelectorAll('.navbar-link');
+
+// Ajoutez un gestionnaire d'événement de clic pour le défilement en douceur
+navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault(); // Empêche le comportement par défaut du lien
+
+    // Obtenez la valeur de l'attribut href du lien
+    const targetId = link.getAttribute('href').substring(1);
+
+    // Obtenez la section cible en utilisant l'ID
+    const targetSection = document.getElementById(targetId);
+
+    // Défilez jusqu'à la section cible
+    if (targetSection) {
+      targetSection.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// Ajoutez un gestionnaire d'événement de défilement pour mettre à jour la classe "active"
+window.addEventListener('scroll', () => {
+  // Obtenez la position actuelle de défilement
+  const scrollPosition = window.scrollY;
+
+  // Parcourez les sections de votre page et déterminez laquelle est visible
+  navLinks.forEach(link => {
+    const targetId = link.getAttribute('href').substring(1);
+    const targetSection = document.getElementById(targetId);
+    
+    if (targetSection) {
+      const sectionTop = targetSection.offsetTop;
+      const sectionHeight = targetSection.offsetHeight;
+      
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        // La section est visible à l'écran, mettez à jour la classe "active"
+        navLinks.forEach(link => link.classList.remove('active'));
+        link.classList.add('active');
+      }
+    }
+  });
+});
+
 
 
 
